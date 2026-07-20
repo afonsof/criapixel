@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CriaPixel · Estúdio de games, tradução e ROM hacking</title>
+<meta name="description" content="A CriaPixel é um estúdio independente brasileiro de desenvolvimento de games, tradução e adaptação, e ROM hacking. Criar é nosso talento, o retrô é nossa linguagem.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="CriaPixel · Estúdio de games, tradução e ROM hacking">
+<meta property="og:description" content="Tiramos da caixa novas experiências com coisas antigas.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0; background:#FCFCFA; color:#17181B;
+    font-family:"Space Grotesk", system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:#0B7D48; text-decoration:none; }
+  a:hover{ color:#12B76A; }
+  ::selection{ background:#12B76A; color:#fff; }
+  img.px{ image-rendering:pixelated; }
+  h1,h2,h3{ margin:0; }
+  p{ margin:0; }
+
+  .wrap{ max-width:1160px; margin:0 auto; padding-left:24px; padding-right:24px; }
+  .pixel{ font-family:'Press Start 2P', monospace; }
+
+  /* --- nav --- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(252,252,250,.85); backdrop-filter:blur(10px);
+    border-bottom:1px solid #EAEAE4;
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding-top:14px; padding-bottom:14px; }
+  .nav-links{ display:flex; align-items:center; gap:28px; }
+  .nav-links a{ color:#17181B; font-weight:500; font-size:15px; }
+  .nav-logo img{ height:30px; width:auto; display:block; }
+
+  /* --- buttons --- */
+  .btn{ display:inline-flex; align-items:center; gap:8px; border-radius:11px; font-weight:600; font-size:16px; padding:14px 24px; }
+  .btn-primary{ background:#12B76A; color:#fff; box-shadow:0 6px 0 #0B7D48; }
+  .btn-primary:hover{ color:#fff; }
+  .btn-ghost{ background:transparent; color:#17181B; border:2px solid #E0E0DA; }
+  .btn-ghost:hover{ color:#17181B; border-color:#12B76A; }
+  .btn-sm{ padding:13px 22px; font-size:15px; }
+  .btn-sm.btn-primary{ box-shadow:0 5px 0 #0B7D48; }
+
+  /* --- hero --- */
+  .hero{ display:grid; grid-template-columns:1.1fr .9fr; gap:52px; align-items:center; padding-top:64px; padding-bottom:48px; }
+  .badge{ display:inline-flex; align-items:center; gap:8px; font-size:9px; letter-spacing:.5px; color:#0B7D48; background:#EAF7F0; padding:9px 12px; border-radius:6px; }
+  .badge span.dot{ width:8px; height:8px; background:#12B76A; display:inline-block; }
+  .hero h1{ font-size:56px; line-height:1.04; font-weight:700; letter-spacing:-1.5px; margin:24px 0 0; }
+  .hero p.lede{ font-size:18px; line-height:1.6; color:#42463F; max-width:480px; margin:22px 0 0; }
+  .hero-cta{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .hero-art{ position:relative; display:flex; justify-content:center; }
+  .hero-art .glow{ position:absolute; inset:0; margin:auto; width:320px; height:320px; background:radial-gradient(circle,#EAF7F0 0%,rgba(234,247,240,0) 70%); }
+  .hero-art svg{ width:min(340px,80%); height:auto; position:relative; animation:floaty 5.5s ease-in-out infinite; }
+  @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+  @media (prefers-reduced-motion: reduce){ .hero-art svg{ animation:none; } html{ scroll-behavior:auto; } }
+
+  /* --- stats strip --- */
+  .strip{ border-top:1px solid #EAEAE4; border-bottom:1px solid #EAEAE4; background:#F5F6F2; }
+  .strip-inner{ display:flex; gap:36px; flex-wrap:wrap; justify-content:center; align-items:center; padding-top:18px; padding-bottom:18px; font-size:10px; color:#6E736C; letter-spacing:.5px; }
+  .strip-inner .sep{ color:#12B76A; }
+
+  /* --- sections --- */
+  .sec{ padding-top:80px; padding-bottom:40px; }
+  .eyebrow{ font-size:10px; color:#12B76A; }
+  .sec h2.big{ font-size:38px; font-weight:700; letter-spacing:-1px; margin:16px 0 0; }
+
+  .emocre-grid{ display:grid; grid-template-columns:.95fr 1.05fr; gap:52px; align-items:center; }
+  .emocre-grid h2{ font-size:30px; line-height:1.2; margin:18px 0 0; letter-spacing:1px; }
+  .emocre-grid p.hook{ font-size:22px; line-height:1.3; font-weight:600; letter-spacing:-.5px; margin:16px 0 0; }
+  .emocre-grid p.body{ font-size:17px; line-height:1.6; color:#42463F; margin:14px 0 0; }
+  .platforms{ display:flex; gap:20px; margin-top:22px; flex-wrap:wrap; font-size:13px; color:#6E736C; }
+
+  /* --- CRT --- */
+  .crt-wrap{ display:flex; justify-content:center; }
+  .crt{ background:linear-gradient(#2B2C26,#202119); border-radius:26px; padding:22px; box-shadow:0 22px 44px rgba(23,24,27,.28), inset 0 2px 0 rgba(255,255,255,.06); width:100%; max-width:460px; }
+  .crt-row{ display:flex; gap:18px; }
+  .screen{ flex:1; position:relative; aspect-ratio:4/3; background:#000; border-radius:16px; overflow:hidden; border:3px solid #14140F; box-shadow:inset 0 0 5px 3px rgba(0,0,0,.9), inset 0 0 60px rgba(0,0,0,.85); }
+  .screen img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .7s ease; }
+  .screen img.on{ opacity:1; }
+  .scanlines{ position:absolute; inset:0; background:repeating-linear-gradient(rgba(0,0,0,0) 0 2px, rgba(0,0,0,.22) 2px 4px); pointer-events:none; }
+  .vignette{ position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(0,0,0,0) 52%, rgba(0,0,0,.55) 100%); pointer-events:none; }
+  .gloss{ position:absolute; top:0; left:0; right:0; height:48%; background:linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,0)); pointer-events:none; }
+  .crt-ctrl{ width:56px; flex:none; display:flex; flex-direction:column; align-items:center; gap:14px; padding-top:4px; }
+  .crt-brand{ font-size:6px; color:#12B76A; text-align:center; line-height:1.6; }
+  .knob{ width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 35% 30%, #4A4B43, #26271F); box-shadow:inset 0 -2px 4px rgba(0,0,0,.6); position:relative; }
+  .knob span{ position:absolute; top:4px; left:50%; transform:translateX(-50%); width:3px; height:9px; background:#8A8F86; }
+  .knob.lit span{ background:#12B76A; }
+  .led{ display:flex; align-items:center; gap:5px; margin-top:2px; }
+  .led i{ width:7px; height:7px; border-radius:50%; background:#12B76A; box-shadow:0 0 6px #12B76A; }
+  .led b{ font-size:5px; color:#6E736C; font-weight:normal; }
+  .vents{ display:flex; flex-direction:column; gap:3px; margin-top:2px; width:24px; }
+  .vents i{ height:2px; background:#14140F; }
+  .feet{ display:flex; justify-content:space-between; padding:12px 40px 0; }
+  .feet i{ width:36px; height:8px; background:#14140F; border-radius:0 0 4px 4px; }
+
+  /* --- numbers --- */
+  .numbers{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; text-align:center; margin-top:56px; border:1px solid #EAEAE4; border-radius:16px; padding:26px; background:#fff; }
+  .numbers .n{ font-size:22px; color:#12B76A; }
+  .numbers .l{ font-size:12px; color:#6E736C; margin-top:8px; letter-spacing:.5px; }
+
+  /* --- cards --- */
+  .sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:32px; }
+  .sec-head p{ color:#42463F; font-size:16px; max-width:380px; }
+  .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card{ border:1px solid #EAEAE4; border-radius:16px; overflow:hidden; background:#fff; }
+  .card .shot{ position:relative; aspect-ratio:4/3; background:#000; border-bottom:1px solid #EAEAE4; overflow:hidden; }
+  .card .shot img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .card .body{ padding:20px; }
+  .tag{ font-size:8px; color:#0B7D48; background:#EAF7F0; padding:6px 8px; border-radius:5px; display:inline-block; }
+  .card h3{ font-size:19px; font-weight:700; margin:14px 0 6px; }
+  .card p{ font-size:14px; color:#6E736C; line-height:1.5; }
+
+  /* placeholder shown until a real screenshot is dropped in */
+  .shot-ph{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;
+    background:repeating-linear-gradient(45deg,#14140F 0 10px,#1B1C16 10px 20px); color:#4E5348; font-size:8px; line-height:1.8; }
+
+  /* --- quote / bug --- */
+  .quote{ background:#17181B; border-radius:20px; padding:40px; display:grid; grid-template-columns:auto 1fr; gap:36px; align-items:center; }
+  .quote .avatar{ width:132px; height:132px; flex:none; border-radius:16px; overflow:hidden; background:#0E0F12; }
+  .quote .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .quote p.q{ font-size:22px; line-height:1.4; font-weight:600; letter-spacing:-.3px; color:#fff; margin:16px 0 0; max-width:720px; }
+  .quote .who{ font-size:14px; color:#B8BCB4; margin-top:16px; }
+  .quote .who strong{ color:#fff; }
+
+  /* --- team --- */
+  .team{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .member{ border:1px solid #EAEAE4; border-radius:18px; padding:26px; background:#fff; text-align:center; }
+  .member .avatar{ width:120px; height:120px; margin:0 auto 18px; border-radius:14px; overflow:hidden; background:#EAF7F0; }
+  .member .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .member h3{ font-size:19px; font-weight:700; }
+  .member .role{ font-size:13px; color:#12B76A; font-weight:600; margin-top:4px; }
+  .founder{ border:1px solid #EAEAE4; border-radius:18px; padding:32px; background:#F5F6F2; margin-top:24px; }
+  .founder p{ font-size:18px; color:#2A2C26; line-height:1.6; font-style:italic; max-width:760px; }
+  .founder .who{ font-size:14px; color:#6E736C; margin-top:14px; }
+  .founder .who strong{ color:#17181B; }
+
+  /* avatar placeholder */
+  .av-ph{ width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+    background:#EAF7F0; color:#0B7D48; font-size:9px; text-align:center; padding:8px; line-height:1.7; }
+
+  /* --- contato --- */
+  .cta{ background:#12B76A; border-radius:24px; padding:64px 40px; text-align:center; position:relative; overflow:hidden; }
+  .cta .px1,.cta .px2,.cta .px3{ position:absolute; background:rgba(255,255,255,.35); }
+  .cta .px1{ top:24px; left:24px; width:16px; height:16px; }
+  .cta .px2{ bottom:32px; right:40px; width:16px; height:16px; }
+  .cta .px3{ top:60px; right:90px; width:10px; height:10px; background:rgba(255,255,255,.25); }
+  .cta .eyebrow{ color:#0B5A34; }
+  .cta h2{ font-size:42px; font-weight:700; letter-spacing:-1px; color:#fff; margin:18px 0 0; }
+  .cta p{ font-size:18px; color:#E4FBEF; margin:16px auto 0; max-width:500px; }
+  .cta-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+  .cta-btns a{ padding:15px 26px; border-radius:12px; font-weight:600; font-size:16px; }
+  .cta-btns a.dark{ background:#17181B; color:#fff; }
+  .cta-btns a.light{ background:#fff; color:#0B7D48; }
+
+  /* --- footer --- */
+  footer{ border-top:1px solid #EAEAE4; background:#F5F6F2; }
+  .foot{ display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; padding-top:40px; padding-bottom:40px; }
+  .foot img{ height:26px; width:auto; }
+  .foot nav{ display:flex; gap:22px; flex-wrap:wrap; font-size:14px; }
+  .foot nav a{ color:#42463F; }
+  .foot .copy{ font-size:13px; color:#6E736C; }
+
+  /* --- responsive --- */
+  @media (max-width: 900px){
+    .hero, .emocre-grid{ grid-template-columns:1fr; gap:36px; }
+    .hero{ padding-top:48px; }
+    .hero h1{ font-size:40px; letter-spacing:-1px; }
+    .hero-art{ order:-1; }
+    .cards, .team{ grid-template-columns:1fr 1fr; }
+    .sec h2.big, .cta h2{ font-size:30px; }
+    .quote{ grid-template-columns:1fr; gap:24px; padding:32px; }
+    .quote p.q{ font-size:19px; }
+  }
+  @media (max-width: 640px){
+    .nav-links{ gap:16px; }
+    .nav-links a{ font-size:13px; }
+    .hero h1{ font-size:32px; }
+    .cards, .team, .numbers{ grid-template-columns:1fr; }
+    .sec{ padding-top:56px; }
+    .cta{ padding:44px 22px; }
+    .cta h2{ font-size:26px; }
+    .foot{ justify-content:center; text-align:center; }
+  }
+  @media (max-width: 420px){
+    .nav-links a:not(:last-child){ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <nav class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="CriaPixel — início">
+      <img class="px" src="assets/logo-paisagem.svg" alt="CriaPixel">
+    </a>
+    <div class="nav-links">
+      <a href="#emocre">Emocre</a>
+      <a href="#traducoes">Traduções</a>
+      <a href="#estudio">Estúdio</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="top" class="wrap hero">
+  <div>
+    <span class="badge pixel"><span class="dot"></span> ESTÚDIO INDEPENDENTE · BRASIL</span>
+    <h1>Tiramos da caixa<br>novas experiências <span style="color:#12B76A;">com coisas antigas</span>.</h1>
+    <p class="lede">A CriaPixel é um estúdio de <strong>desenvolvimento de games</strong>, <strong>Tradução e Adaptação</strong> e <strong>ROM Hacking</strong>. Criar é nosso talento e o estilo retrô é a nossa linguagem.</p>
+    <div class="hero-cta">
+      <a href="#contato" class="btn btn-primary">Fale com a gente →</a>
+      <a href="#traducoes" class="btn btn-ghost">Ver o portfólio</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <div class="glow"></div>
+    <svg viewBox="110 70 450 410" shape-rendering="crispEdges" role="img" aria-label="Cartucho de videogame em pixel art">
+      <path fill="#12B76A" d="M 220 80 L 450 80 L 450 90 L 460 90 L 460 100 L 470 100 L 470 110 L 480 110 L 480 120 L 490 120 L 490 130 L 500 130 L 500 140 L 510 140 L 510 150 L 520 150 L 520 160 L 530 160 L 530 170 L 540 170 L 540 180 L 550 180 L 550 380 L 540 380 L 540 390 L 530 390 L 530 400 L 520 400 L 520 410 L 510 410 L 510 420 L 500 420 L 500 430 L 490 430 L 490 440 L 480 440 L 480 450 L 470 450 L 470 460 L 460 460 L 460 470 L 210 470 L 210 460 L 200 460 L 200 450 L 190 450 L 190 440 L 180 440 L 180 430 L 170 430 L 170 420 L 160 420 L 160 410 L 150 410 L 150 400 L 140 400 L 140 390 L 130 390 L 130 380 L 120 380 L 120 180 L 130 180 L 130 170 L 140 170 L 140 160 L 150 160 L 150 150 L 160 150 L 160 140 L 170 140 L 170 130 L 180 130 L 180 120 L 190 120 L 190 110 L 200 110 L 200 100 L 210 100 L 210 90 L 220 90 Z M 450 430 L 460 430 L 460 420 L 470 420 L 470 410 L 480 410 L 480 400 L 490 400 L 490 390 L 500 390 L 500 380 L 510 380 L 510 370 L 520 370 L 520 220 L 510 220 L 510 230 L 500 230 L 500 240 L 490 240 L 490 250 L 480 250 L 480 260 L 470 260 L 470 270 L 460 270 L 460 280 L 450 280 L 450 290 L 220 290 L 220 280 L 210 280 L 210 270 L 200 270 L 200 260 L 190 260 L 190 250 L 180 250 L 180 240 L 170 240 L 170 230 L 160 230 L 160 220 L 150 220 L 150 370 L 160 370 L 160 380 L 170 380 L 170 390 L 180 390 L 180 400 L 190 400 L 190 410 L 200 410 L 200 420 L 210 420 L 210 430 L 220 430 L 220 440 L 450 440 Z M 250 320 L 280 320 L 280 410 L 250 410 Z M 390 320 L 420 320 L 420 410 L 390 410 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="strip">
+  <div class="wrap strip-inner pixel">
+    <span>DESENVOLVIMENTO DE GAMES</span><span class="sep">◆</span>
+    <span>TRADUÇÃO E ADAPTAÇÃO</span><span class="sep">◆</span>
+    <span>ROM HACKING</span>
+  </div>
+</div>
+
+<!-- EMOCRE -->
+<section id="emocre" class="wrap sec">
+  <div class="emocre-grid">
+    <div>
+      <span class="eyebrow pixel">NOSSO JOGO</span>
+      <h2 class="pixel">EMOCRE</h2>
+      <p class="hook">Dentro da sua mente, as emoções <span style="color:#12B76A;">tomaram forma</span>.</p>
+      <p class="body">Um Monster Tamer / Metroidvania <strong>16-bit</strong> com batalhas por turnos, para Mega Drive e PC. Enfrente criaturas feitas de sentimentos — e integre-as.</p>
+      <div class="platforms">
+        <span>🕹️ Mega Drive</span><span>💻 Steam (PC)</span><span>🇧🇷 PT-BR · 🇺🇸 EN</span>
+      </div>
+      <div class="hero-cta" style="margin-top:26px;">
+        <a href="https://emocre.com/#demo" target="_blank" rel="noopener" class="btn btn-sm btn-primary">▶ Jogar a demo</a>
+        <a href="https://emocre.com" target="_blank" rel="noopener" class="btn btn-sm btn-ghost">Site oficial ↗</a>
+      </div>
+    </div>
+
+    <div class="crt-wrap">
+      <div class="crt">
+        <div class="crt-row">
+          <div class="screen">
+            <img class="px on" data-crt-shot src="https://emocre.com/assets/screen5.png" alt="Cena do jogo Emocre">
+            <img class="px" data-crt-shot src="https://emocre.com/assets/screen1.png" alt="" aria-hidden="true">
+            <img class="px" data-crt-shot src="https://emocre.com/assets/screen3.png" alt="" aria-hidden="true">
+            <img class="px" data-crt-shot src="https://emocre.com/assets/screen0.png" alt="" aria-hidden="true">
+            <img class="px" data-crt-shot src="https://emocre.com/assets/screen4.png" alt="" aria-hidden="true">
+            <div class="scanlines"></div><div class="vignette"></div><div class="gloss"></div>
+          </div>
+          <div class="crt-ctrl">
+            <div class="crt-brand pixel">CRIA<br>PIXEL</div>
+            <div class="knob lit"><span></span></div>
+            <div class="knob"><span></span></div>
+            <div class="led"><i></i><b class="pixel">ON</b></div>
+            <div class="vents"><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="feet"><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="numbers">
+    <div><div class="n pixel">105</div><div class="l">CRIATURAS</div></div>
+    <div><div class="n pixel">8</div><div class="l">EMOÇÕES</div></div>
+    <div><div class="n pixel">30%</div><div class="l">EM DEV</div></div>
+  </div>
+</section>
+
+<!-- TRADUÇÕES -->
+<section id="traducoes" class="wrap sec">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow pixel">TRADUÇÃO &amp; ROM HACKING</span>
+      <h2 class="big">Traduções oficiais</h2>
+    </div>
+    <p>Localizações oficiais e licenciadas de indies consagrados — do texto à ROM, com aquele gostinho de brasilidade.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="shot">
+        <div class="shot-ph pixel">SEM IMAGEM<br>assets/shot-wukong.jpg</div>
+        <div class="scanlines"></div><div class="vignette"></div><div class="gloss"></div>
+      </div>
+      <div class="body">
+        <span class="tag pixel">RPG DE AÇÃO</span>
+        <h3>Legend of Wukong</h3>
+        <p>Um clássico do RPG chinês, agora com cada linha em português.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="shot">
+        <div class="shot-ph pixel">SEM IMAGEM<br>assets/shot-yuki.jpg</div>
+        <div class="scanlines"></div><div class="vignette"></div><div class="gloss"></div>
+      </div>
+      <div class="body">
+        <span class="tag pixel">PLATAFORMA</span>
+        <h3>FX Unit Yuki</h3>
+        <p>Ação retrô na veia dos 8-bits — localizado do menu ao último chefe.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="shot">
+        <div class="shot-ph pixel">SEM IMAGEM<br>assets/shot-illmoore.jpg</div>
+        <div class="scanlines"></div><div class="vignette"></div><div class="gloss"></div>
+      </div>
+      <div class="body">
+        <span class="tag pixel">RPG DE AVENTURA</span>
+        <h3>The Curse of Illmoore Bay</h3>
+        <p>Mistério e aventura numa cidade amaldiçoada, agora em PT-BR.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CREDIBILIDADE / BUG -->
+<section class="wrap" style="padding-top:24px; padding-bottom:40px;">
+  <div class="quote">
+    <div class="avatar">
+      <div class="av-ph pixel" style="background:#0E0F12; color:#3E4239;">FOTO<br>tiuzao.jpg</div>
+    </div>
+    <div>
+      <span class="eyebrow pixel">PARCERIA · BUG</span>
+      <p class="q">“A CriaPixel entregou os três jogos com um capricho de quem entende de retrô de verdade. Tradução impecável, no prazo e com o coração brasileiro. Parceria pra vida.”</p>
+      <div class="who">— <strong>Elton Barrez, o Tiuzão</strong> · BUG</div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTÚDIO -->
+<section id="estudio" class="wrap sec">
+  <span class="eyebrow pixel">QUEM FAZ</span>
+  <h2 class="big" style="margin-bottom:36px;">Nossa equipe</h2>
+  <div class="team">
+    <div class="member">
+      <div class="avatar"><div class="av-ph pixel">FOTO<br>afonso.jpg</div></div>
+      <h3>Afonso</h3>
+      <div class="role">Fundador · Desenvolvimento e Arte</div>
+    </div>
+    <div class="member">
+      <div class="avatar"><div class="av-ph pixel">FOTO<br>jessica.jpg</div></div>
+      <h3>Jessica</h3>
+      <div class="role">Marketing e Planejamento</div>
+    </div>
+    <div class="member">
+      <div class="avatar"><div class="av-ph pixel">FOTO<br>juliana.jpg</div></div>
+      <h3>Juliana</h3>
+      <div class="role">Tradução e Localização</div>
+    </div>
+  </div>
+  <div class="founder">
+    <p>"Brincar e modificar jogos fez parte da minha vida desde bem pequeno — foi por isso que comecei a estudar computação, pra criar jogos. A CriaPixel é a realização desse desejo antigo: tiramos da caixa todos os experimentos e os transformamos em produto."</p>
+    <div class="who">— <strong>Afonso França de Oliveira</strong>, fundador · São Paulo 🇧🇷</div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="wrap" style="padding-top:40px; padding-bottom:80px;">
+  <div class="cta">
+    <div class="px1"></div><div class="px2"></div><div class="px3"></div>
+    <span class="eyebrow pixel">VAMOS TRABALHAR JUNTOS</span>
+    <h2>Tem um projeto pra tirar da caixa?</h2>
+    <p>Desenvolvimento, localização oficial ou ROM hacking — para estúdios, publishers e parceiros. Fale com o nosso time.</p>
+    <div class="cta-btns">
+      <a href="mailto:afonso@emocre.com" class="dark">afonso@emocre.com</a>
+      <a href="https://instagram.com/emocregame" target="_blank" rel="noopener" class="light">@emocregame</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <img class="px" src="assets/logo-paisagem.svg" alt="CriaPixel">
+    <nav>
+      <a href="#emocre">Emocre</a>
+      <a href="#traducoes">Traduções</a>
+      <a href="#estudio">Estúdio</a>
+      <a href="https://emocre.com/press-kit" target="_blank" rel="noopener">Press Kit</a>
+    </nav>
+    <span class="copy">© 2026 CriaPixel · feito com pixels no Brasil 🇧🇷</span>
+  </div>
+</footer>
+
+<script>
+  // Rotação das telas da TV de tubo
+  (function () {
+    var shots = Array.prototype.slice.call(document.querySelectorAll('[data-crt-shot]'));
+    if (shots.length < 2) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0;
+    setInterval(function () {
+      shots[i].classList.remove('on');
+      i = (i + 1) % shots.length;
+      shots[i].classList.add('on');
+    }, 2800);
+  })();
+</script>
+
+</body>
+</html>

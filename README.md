@@ -27,9 +27,6 @@ Basta soltar os arquivos em `assets/` com estes nomes exatos e trocar o `<div cl
 
 | Arquivo esperado            | Onde aparece                        |
 | --------------------------- | ----------------------------------- |
-| `assets/shot-wukong.jpg`    | card Legend of Wukong               |
-| `assets/shot-yuki.jpg`      | card FX Unit Yuki                   |
-| `assets/shot-illmoore.jpg`  | card The Curse of Illmoore Bay      |
 | `assets/tiuzao.jpg`         | depoimento do Tiuzão (BUG)          |
 | `assets/afonso.jpg`         | equipe                              |
 | `assets/jessica.jpg`        | equipe                              |

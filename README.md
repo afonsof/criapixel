@@ -27,9 +27,6 @@ Basta soltar os arquivos em `assets/` com estes nomes exatos e trocar o `<div cl
 
 | Arquivo esperado            | Onde aparece                        |
 | --------------------------- | ----------------------------------- |
-| `assets/tiuzao.jpg`         | depoimento do Tiuzão (BUG)          |
 | `assets/afonso.jpg`         | equipe                              |
-| `assets/jessica.jpg`        | equipe                              |
-| `assets/juliana.jpg`        | equipe                              |
 
 As telas do Emocre no CRT são carregadas direto de `emocre.com` e já funcionam.

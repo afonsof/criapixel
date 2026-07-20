@@ -19,14 +19,11 @@ python3 -m http.server 8000
 # abra http://localhost:8000
 ```
 
-## Imagens pendentes
+## Imagens
 
-Alguns assets ainda não estão no repositório e aparecem como placeholders na página.
-Basta soltar os arquivos em `assets/` com estes nomes exatos e trocar o `<div class="shot-ph">` /
-`<div class="av-ph">` correspondente por uma tag `<img>`:
+Todos os assets estão no repositório, exceto as telas do Emocre exibidas na TV de tubo,
+que são carregadas direto de `emocre.com`.
 
-| Arquivo esperado            | Onde aparece                        |
-| --------------------------- | ----------------------------------- |
-| `assets/afonso.jpg`         | equipe                              |
-
-As telas do Emocre no CRT são carregadas direto de `emocre.com` e já funcionam.
+- `shot-*.png` — capturas de emulador dos jogos traduzidos. São PNG (lossless) porque
+  são pixel art; a página aplica `image-rendering: pixelated` para escalar sem borrar.
+- Fotos de pessoas — JPEG 360×360, recorte quadrado centralizado.

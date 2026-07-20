@@ -124,10 +124,6 @@
   .card h3{ font-size:19px; font-weight:700; margin:14px 0 6px; }
   .card p{ font-size:14px; color:#6E736C; line-height:1.5; }
 
-  /* placeholder shown until a real screenshot is dropped in */
-  .shot-ph{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;
-    background:repeating-linear-gradient(45deg,#14140F 0 10px,#1B1C16 10px 20px); color:#4E5348; font-size:8px; line-height:1.8; }
-
   /* --- quote / bug --- */
   .quote{ background:#17181B; border-radius:20px; padding:40px; display:grid; grid-template-columns:auto 1fr; gap:36px; align-items:center; }
   .quote .avatar{ width:132px; height:132px; flex:none; border-radius:16px; overflow:hidden; background:#0E0F12; }
@@ -147,10 +143,6 @@
   .founder p{ font-size:18px; color:#2A2C26; line-height:1.6; font-style:italic; max-width:760px; }
   .founder .who{ font-size:14px; color:#6E736C; margin-top:14px; }
   .founder .who strong{ color:#17181B; }
-
-  /* avatar placeholder */
-  .av-ph{ width:100%; height:100%; display:flex; align-items:center; justify-content:center;
-    background:#EAF7F0; color:#0B7D48; font-size:9px; text-align:center; padding:8px; line-height:1.7; }
 
   /* --- contato --- */
   .cta{ background:#12B76A; border-radius:24px; padding:64px 40px; text-align:center; position:relative; overflow:hidden; }
@@ -305,8 +297,8 @@
   <div class="cards">
     <article class="card">
       <div class="shot">
-        <img src="assets/shot-wukong.jpg" alt="Legend of Wukong traduzido, rodando numa TV de tubo" loading="lazy" width="1200" height="900">
-        <div class="vignette"></div><div class="gloss"></div>
+        <img class="px" src="assets/shot-wukong.png" alt="Legend of Wukong em português: “Jovem, confundiram você com um monstro por causa dessas roupas tão estranhas que está usando!”" loading="lazy" width="960" height="672">
+        <div class="scanlines"></div><div class="vignette"></div><div class="gloss"></div>
       </div>
       <div class="body">
         <span class="tag pixel">RPG DE AÇÃO</span>
@@ -316,8 +308,8 @@
     </article>
     <article class="card">
       <div class="shot">
-        <img src="assets/shot-yuki.jpg" alt="FX Unit Yuki traduzido, rodando numa TV de tubo" loading="lazy" width="1200" height="900">
-        <div class="vignette"></div><div class="gloss"></div>
+        <img class="px" src="assets/shot-yuki.png" alt="FX Unit Yuki em português: “Yuki tinha se transformado! Ela criou um elo neurológico”" loading="lazy" width="768" height="588">
+        <div class="scanlines"></div><div class="vignette"></div><div class="gloss"></div>
       </div>
       <div class="body">
         <span class="tag pixel">PLATAFORMA</span>
@@ -327,8 +319,8 @@
     </article>
     <article class="card">
       <div class="shot">
-        <img src="assets/shot-illmoore.jpg" alt="The Curse of Illmoore Bay traduzido, rodando numa TV de tubo" loading="lazy" width="1200" height="900">
-        <div class="vignette"></div><div class="gloss"></div>
+        <img class="px" src="assets/shot-illmoore.png" alt="The Curse of Illmoore Bay em português: “A partir da meia-noite, sempre será... Halloween!”" loading="lazy" width="960" height="672">
+        <div class="scanlines"></div><div class="vignette"></div><div class="gloss"></div>
       </div>
       <div class="body">
         <span class="tag pixel">RPG DE AVENTURA</span>
@@ -339,7 +331,7 @@
   </div>
 </section>
 
-<!-- CREDIBILIDADE / BUG -->
+<!-- CREDIBILIDADE / BUG — temporariamente fora do ar
 <section class="wrap" style="padding-top:24px; padding-bottom:40px;">
   <div class="quote">
     <div class="avatar">
@@ -352,6 +344,7 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- ESTÚDIO -->
 <section id="estudio" class="wrap sec">
@@ -359,7 +352,7 @@
   <h2 class="big" style="margin-bottom:36px;">Nossa equipe</h2>
   <div class="team">
     <div class="member">
-      <div class="avatar"><div class="av-ph pixel">FOTO<br>afonso.jpg</div></div>
+      <div class="avatar"><img src="assets/afonso.jpg" alt="Afonso França de Oliveira, fundador da CriaPixel" loading="lazy" width="360" height="360"></div>
       <h3>Afonso</h3>
       <div class="role">Fundador · Desenvolvimento e Arte</div>
     </div>
